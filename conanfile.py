@@ -52,7 +52,6 @@ class GoogletestConan(ConanFile):
             else:
                 self.run("ctest --output-on-failure")
         cmake.install()
-        tools.rmdir(os.path.join(self.package_folder, "lib/cmake"))
         tools.rmdir(os.path.join(self.package_folder, "lib/pkgconfig"))
 
     def package(self):

@@ -18,15 +18,15 @@ add_test(
 )
 
 
-# GTest imported targets
+# fmt imported targets
 
-#find_package(GTest REQUIRED)
+find_package(fmt REQUIRED)
 
-#add_executable(test_fmt test_fmt.cpp)
-#target_link_libraries(test_fmt GTest::GTest)
-#add_test(
-#    NAME test_fmt
-#    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-#    COMMAND test_fmt
-#)
+add_executable(test_fmt test_fmt.cpp)
+target_link_libraries(test_fmt fmt::fmt)
+add_test(
+    NAME test_fmt
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    COMMAND test_fmt
+)
 
