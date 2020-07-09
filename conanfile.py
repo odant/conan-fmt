@@ -55,25 +55,7 @@ class GoogletestConan(ConanFile):
         tools.rmdir(os.path.join(self.package_folder, "lib/pkgconfig"))
 
     def package(self):
-        return
-        # CMake scripts
-        self.copy("FindGTest.cmake", dst=".", src=".", keep_path=False)
-        self.copy("FindGMock.cmake", dst=".", src=".", keep_path=False)
-        # Headers
-        self.copy("*.h", dst="include", src="src/googletest/include", keep_path=True)
-        self.copy("*.h", dst="include", src="src/googlemock/include", keep_path=True)
-        # Libraries
-        self.copy("*.a", dst="lib", keep_path=False)
-        self.copy("*.lib", dst="lib", keep_path=False)
-        # PDB
-        self.copy("*gtest.pdb", dst="bin", keep_path=False)
-        self.copy("*gmock.pdb", dst="bin", keep_path=False)
-        self.copy("*gtest_main.pdb", dst="bin", keep_path=False)
-        self.copy("*gmock_main.pdb", dst="bin", keep_path=False)
-        self.copy("*gtestd.pdb", dst="bin", keep_path=False)
-        self.copy("*gmockd.pdb", dst="bin", keep_path=False)
-        self.copy("*gtest_maind.pdb", dst="bin", keep_path=False)
-        self.copy("*gmock_maind.pdb", dst="bin", keep_path=False)
+        self.copy("*fmt.pdb", dst="bin", keep_path=False)
 
     def package_id(self):
         self.info.options.with_unit_tests = "any"
