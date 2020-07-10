@@ -8,7 +8,7 @@ import os
 
 class GoogletestConan(ConanFile):
     name = "fmt"
-    version = "7.0.1+1"
+    version = "7.0.1+2"
     license = "https://raw.githubusercontent.com/fmtlib/fmt/master/LICENSE.rst"
     description = "{fmt} is an open-source formatting library for C++. It can be used as a safe and fast alternative to (s)printf and iostreams."
     url = "https://github.com/odant/conan-fmt"
@@ -44,6 +44,8 @@ class GoogletestConan(ConanFile):
         cmake.definitions["FMT_DOC"] = "OFF"
         if self.options.with_unit_tests:
             cmake.definitions["FMT_TEST"] = "ON"
+        if self.settings.get_safe("compiler.runtime") in ("MT", "MTd"):
+            cmake.definitions["MSVC_BUILD_STATIC"] = "ON"
         cmake.configure()
         cmake.build()
         if self.options.with_unit_tests:
