@@ -8,7 +8,7 @@ import os
 
 class GoogletestConan(ConanFile):
     name = "fmt"
-    version = "7.1.3+1"
+    version = "7.1.3+2"
     license = "https://raw.githubusercontent.com/fmtlib/fmt/master/LICENSE.rst"
     description = "{fmt} is an open-source formatting library for C++. It can be used as a safe and fast alternative to (s)printf and iostreams."
     url = "https://github.com/odant/conan-fmt"
@@ -36,9 +36,7 @@ class GoogletestConan(ConanFile):
             self.build_requires("ninja/[>=1.9.0]")
 
     def build(self):
-        build_type = "RelWithDebInfo" if self.settings.build_type == "Release" else "Debug"
-        gen = "Ninja" if self.options.ninja == True else None
-        cmake = CMake(self, build_type=build_type, generator=gen, msbuild_verbosity='normal')
+        cmake = CMake(self, msbuild_verbosity='normal')
         cmake.verbose = True
         cmake.definitions["FMT_INSTALL"] = "ON"
         cmake.definitions["FMT_DOC"] = "OFF"
