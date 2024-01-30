@@ -8,7 +8,7 @@ import os
 
 class GoogletestConan(ConanFile):
     name = "fmt"
-    version = "10.1.1+0"
+    version = "10.2.1+0"
     license = "https://raw.githubusercontent.com/fmtlib/fmt/master/LICENSE.rst"
     description = "{fmt} is an open-source formatting library for C++. It can be used as a safe and fast alternative to (s)printf and iostreams."
     url = "https://github.com/odant/conan-fmt"
