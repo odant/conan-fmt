@@ -9,6 +9,7 @@ enable_testing()
 
 # CONAN_PKG imported targets
 
+add_compile_options(/permissive- /EHa /MP /utf-8 /W3 /Zc:__cplusplus /Zc:preprocessor)
 add_executable(test_fmt_CONAN_PKG test_fmt.cpp)
 target_link_libraries(test_fmt_CONAN_PKG CONAN_PKG::fmt)
 add_test(
